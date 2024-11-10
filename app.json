@@ -2,6 +2,11 @@
   "expo": {
     "name": "healthcare",
     "slug": "a",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "3e22cf38-512c-4847-897b-9626e317112a"
+      }
+    }
   }
 }
