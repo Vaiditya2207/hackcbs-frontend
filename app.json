@@ -1,8 +1,22 @@
 {
   "expo": {
-    "name": "healthcare",
+    "name": "a",
     "slug": "a",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/abc.jpeg",
+    "splash": {
+      "image": "./assets/abc.jpeg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.hackcbs.a",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/abc.jpeg",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
     "extra": {
       "eas": {
         "projectId": "3e22cf38-512c-4847-897b-9626e317112a"

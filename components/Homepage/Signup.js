@@ -30,18 +30,30 @@ const SignUpScreen = () => {
 
   const navigate = useNavigate();
 
+
+  const showAlert = (title, message, options = []) => {
+    if (Platform.OS === 'web') {
+      alert(`${title}: ${message}`);
+      if (options.length > 0 && options[0].onPress) {
+        options[0].onPress();
+      }
+    } else {
+      Alert.alert(title, message, options);
+    }
+  };
+
   // Form validation function
   const validateForm = () => {
     if (!firstName || !lastName || !email || !password || !phoneNumber || !height || !weight) {
-      Alert.alert('Error', 'Please fill in all fields');
+      showAlert('Error', 'Please fill in all fields');
       return false;
     }
     if (!email.includes('@')) {
-      Alert.alert('Error', 'Please enter a valid email address');
+      showAlert('Error', 'Please enter a valid email address');
       return false;
     }
     if (password.length < 6) {
-      Alert.alert('Error', 'Password must be at least 6 characters long');
+      showAlert('Error', 'Password must be at least 6 characters long');
       return false;
     }
     return true;
@@ -49,9 +61,11 @@ const SignUpScreen = () => {
 
   // Handle sign up with validation and API call
   const handleSignUp = async () => {
+    console.log('handleSignUp called');
     if (!validateForm()) return;
 
     try {
+      console.log('Sending signup request...');
       const response = await fetch('https://hackcbs-backend-x9gw.onrender.com/auth/signup', {
         method: 'POST',
         headers: {
@@ -67,26 +81,26 @@ const SignUpScreen = () => {
           password: password
         })
       });
-      
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (response.ok) {
-        Alert.alert(
-          'Success', 
+        showAlert(
+          'Success',
           'Account created successfully!',
           [
             {
               text: 'OK',
-              onPress: () => navigate('/signin')
+              onPress: () => navigate('/sign-in')
             }
           ]
         );
       } else {
-        Alert.alert('Error', data.message || 'Failed to sign up');
+        showAlert('Error', data.message || 'Failed to sign up');
       }
     } catch (error) {
       console.error('Sign up error:', error);
-      Alert.alert('Error', 'An error occurred during sign up');
+      showAlert('Error', 'An error occurred during sign up');
     }
   };
 
