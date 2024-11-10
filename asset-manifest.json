@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/static/js/main.21cedded.js",
+    "static/js/590.67350495.js": "/static/js/590.67350495.js",
+    "static/media/marble.png": "/static/media/marble.0f6cafc4381c9db90551.png",
+    "index.html": "/index.html",
+    "serve.json": "/serve.json",
+    "manifest.json": "/manifest.json",
+    "main.21cedded.js.map": "/static/js/main.21cedded.js.map",
+    "590.67350495.js.map": "/static/js/590.67350495.js.map"
+  },
+  "entrypoints": [
+    "static/js/590.67350495.js",
+    "static/js/main.21cedded.js"
+  ]
+}
